@@ -164,7 +164,6 @@
             box-shadow: 0 4px 12px rgba(255, 59, 48, 0.15);
         }
 
-        /* Estilo dos logos das lojas */
         .store-logo {
             width: 28px;
             height: 28px;
@@ -242,7 +241,6 @@
             color: var(--text-body);
         }
 
-        /* Botão de Ação CTA */
         .action-btn {
             background: var(--primary-gradient);
             color: white;
@@ -260,11 +258,10 @@
             transform: scale(1.03);
         }
 
-        /* Card Desativado (Em Breve) */
         .group-card.disabled {
             opacity: 0.55;
             cursor: not-allowed;
-            pointer-events: none; /* Bloqueia cliques e hovers */
+            pointer-events: none;
             background: #f8fafc;
         }
 
@@ -279,7 +276,7 @@
         }
 
         /* ==========================================================================
-           5. DEPOIMENTOS (PROVA SOCIAL)
+           5. CARROSSEL DE DEPOIMENTOS (PROVA SOCIAL DINÂMICA)
            ========================================================================== */
         .testimonials {
             background: #f8fafc;
@@ -287,34 +284,77 @@
             border-radius: 16px;
             padding: 16px;
             margin-bottom: 20px;
+            position: relative;
+            min-height: 85px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .testimonials-title {
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 700;
             color: var(--text-title);
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             text-align: center;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+        }
+
+        .testimonial-container {
+            position: relative;
+            width: 100%;
         }
 
         .testimonial-item {
             font-size: 12.5px;
             color: var(--text-body);
             font-style: italic;
-            margin-bottom: 10px;
             line-height: 1.4;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            pointer-events: none;
         }
 
-        .testimonial-item:last-child {
-            margin-bottom: 0;
+        .testimonial-item.active {
+            opacity: 1;
+            position: relative;
+            pointer-events: auto;
         }
 
         .testimonial-author {
             font-weight: 700;
             font-style: normal;
             color: var(--primary);
+            display: block;
+            margin-top: 4px;
+        }
+
+        /* Indicadores em Bolinhas (Dots) */
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 4px;
+            margin-top: 10px;
+        }
+
+        .dot {
+            width: 6px;
+            height: 6px;
+            background: #cbd5e1;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: var(--primary);
+            width: 16px;
+            border-radius: 10px;
         }
 
         /* ==========================================================================
@@ -332,7 +372,6 @@
             margin: 0 0 4px 0;
         }
 
-        /* Keyframes de Animação */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
@@ -362,35 +401,27 @@
             <p class="header-description">Selecione um grupo abaixo para receber cupons, ofertas relâmpago e achados exclusivos!</p>
         </div>
 
-        <!-- Seção de Lojas Parceiras com Espaço para Logos -->
+        <!-- Seção de Lojas Parceiras -->
         <div class="stores-section">
             <div class="stores-title">Lojas Monitoradas</div>
             <div class="stores-grid">
                 
-                <!-- Loja 1: Shopee -->
                 <div class="store-item">
-                    <!-- Substitua o src pelo caminho da sua imagem, ex: ./shopee.png -->
                     <img class="store-logo" src="./shopee.png" alt="Shopee" onerror="this.style.display='none'">
                     <span class="store-name">Shopee</span>
                 </div>
 
-                <!-- Loja 2: Amazon -->
                 <div class="store-item">
-                    <!-- Substitua o src pelo caminho da sua imagem, ex: ./amazon.png -->
                     <img class="store-logo" src="./amazon.png" alt="Amazon" onerror="this.style.display='none'">
                     <span class="store-name">Amazon</span>
                 </div>
 
-                <!-- Loja 3: Mercado Livre -->
                 <div class="store-item">
-                    <!-- Substitua o src pelo caminho da sua imagem, ex: ./mercadolivre.png -->
                     <img class="store-logo" src="./mercadolivre.png" alt="Mercado Livre" onerror="this.style.display='none'">
                     <span class="store-name">Mercado Livre</span>
                 </div>
 
-                <!-- Loja 4: AliExpress -->
                 <div class="store-item">
-                    <!-- Substitua o src pelo caminho da sua imagem, ex: ./aliexpress.png -->
                     <img class="store-logo" src="./aliexpress.png" alt="AliExpress" onerror="this.style.display='none'">
                     <span class="store-name">AliExpress</span>
                 </div>
@@ -425,7 +456,7 @@
                 <span class="action-btn">Entrar</span>
             </a>
 
-            <!-- Grupo 3: Eletrônicos (Desativado / Em Breve) -->
+            <!-- Grupo 3: Eletrônicos (Em Breve) -->
             <div class="group-card disabled">
                 <div class="group-info">
                     <div class="group-icon">💻</div>
@@ -439,16 +470,14 @@
 
         </div>
 
-        <!-- Depoimentos / Prova Social de Membros -->
+        <!-- Carrossel de Depoimentos Destaque (Gerado via JS) -->
         <div class="testimonials">
             <div class="testimonials-title">💬 O que dizem os membros</div>
-            <div class="testimonial-item">
-                "Consegui economizar muito em fraldas no grupo infantil. Super recomendo!"<br>
-                <span class="testimonial-author">— Mariana S.</span>
+            <div class="testimonial-container" id="testimonial-container">
+                <!-- Os depoimentos serão injetados aqui via JavaScript -->
             </div>
-            <div class="testimonial-item" style="margin-top: 10px;">
-                "Os cupons da Amazon chegam voando, já aproveitei várias promoções relâmpago."<br>
-                <span class="testimonial-author">— Carlos R.</span>
+            <div class="carousel-dots" id="carousel-dots">
+                <!-- As bolinhas indicadoras do carrossel -->
             </div>
         </div>
 
@@ -460,5 +489,101 @@
 
     </div>
 
+    <!-- ==========================================================================
+       7. JAVASCRIPT DO CARROSSEL DE DEPOIMENTOS
+       ========================================================================== -->
+    <script>
+        // Array com os 30 depoimentos dinâmicos
+        const testimonialsData = [
+            { text: "Consegui economizar muito em fraldas no grupo infantil. Super recomendo!", author: "Mariana S." },
+            { text: "Os cupons da Amazon chegam voando, já aproveitei várias promoções relâmpago.", author: "Carlos R." },
+            { text: "Peguei um PlayStation 5 com R$ 800 de desconto graças ao alerta do grupo!", author: "Lucas M." },
+            { text: "Grupo muito organizado e sem spam, só mandam promoção boa de verdade.", author: "Fernanda A." },
+            { text: "Comprei o enxoval completo do meu bebê pegando cupom de frete grátis na Shopee.", author: "Beatriz L." },
+            { text: "Consegui um Air Fryer pela metade do preço no Mercado Livre. Sensacional!", author: "Rodrigo P." },
+            { text: "Sempre pego os cupons secretos da Shopee antes de esgotar. Valeu demais!", author: "Camila T." },
+            { text: "Já economizei mais de R$ 500 este mês só com os achados de tecnologia.", author: "Thiago H." },
+            { text: "Gosto porque é silencioso e só manda o que realmente está com preço baixo.", author: "Patrícia K." },
+            { text: "Acompanho diariamente. Os cupons da Magalu e Amazon salvam minhas compras!", author: "Gustavo C." },
+            { text: "Comprei uma Smart TV 55 polegadas pelo menor preço histórico. Muito obrigado!", author: "André F." },
+            { text: "O grupo de fraldas é a salvação de qualquer mãe, recomendo pra todas as amigas.", author: "Juliana M." },
+            { text: "Peguei uma promoção bug de notebook que durou 10 minutos. Grupo rápido demais!", author: "Felipe N." },
+            { text: "Ativei as notificações e não perco mais nenhum cupom relâmpago da AliExpress.", author: "Vanessa B." },
+            { text: "Economia garantida todos os meses. Melhor grupo de promoções que já entrei.", author: "Marcelo G." },
+            { text: "Achei o carrinho de bebê que eu queria com 40% de desconto. Valeu muito a pena!", author: "Renata D." },
+            { text: "Os alertas de frete grátis da Shopee ajudam demais nas compras do dia a dia.", author: "Diego S." },
+            { text: "Comprei fone bluetooth de marca boa por R$ 30. Chegou rápido e perfeito!", author: "Gabriel V." },
+            { text: "Sempre confiro o grupo antes de comprar qualquer coisa na internet.", author: "Aline P." },
+            { text: "Melhor lugar pra pegar cupom do Mercado Livre que funciona de verdade.", author: "Eduardo T." },
+            { text: "Consegui montar meu quarto gamer economizando um absurdo nas peças.", author: "Matheus R." },
+            { text: "Toda semana pego promoções ótimas de produtos de limpeza e mercado.", author: "Cláudia E." },
+            { text: "Incrível como os links chegam antes de esgotar o estoque nas lojas.", author: "Leonardo A." },
+            { text: "Economizei R$ 200 numa compra de cadeirinha para carro no grupo infantil.", author: "Sabrina Q." },
+            { text: "Excelente curadoria! Eles filtram de verdade o que é promoção real.", author: "Bruno C." },
+            { text: "Já indiquei pra toda a minha família, todo mundo economizando junto.", author: "Tatiane M." },
+            { text: "Consegui comprar o presente de aniversário do meu filho com super desconto.", author: "Roberto Y." },
+            { text: "Os alertas do Mercado Livre com cupom surpresa são os melhores!", author: "Larissa F." },
+            { text: "Grupo nota 10, simples, direto e sem enrolação.", author: "Vinícius O." },
+            { text: "Vale muito a pena ficar no grupo, a economia no final do mês é gigante.", author: "Isabela Z." }
+        ];
+
+        // Função para embaralhar o array (Fisher-Yates Shuffle)
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        // Embaralha para que a ordem mude a cada acesso do usuário
+        const randomizedTestimonials = shuffleArray([...testimonialsData]);
+
+        const container = document.getElementById('testimonial-container');
+        const dotsContainer = document.getElementById('carousel-dots');
+        let currentIndex = 0;
+
+        // Renderiza os depoimentos e as bolinhas indicadoras
+        function initCarousel() {
+            container.innerHTML = '';
+            dotsContainer.innerHTML = '';
+
+            randomizedTestimonials.forEach((item, index) => {
+                // Item do depoimento
+                const div = document.createElement('div');
+                div.className = `testimonial-item ${index === 0 ? 'active' : ''}`;
+                div.innerHTML = `
+                    "${item.text}"
+                    <span class="testimonial-author">— ${item.author}</span>
+                `;
+                container.appendChild(div);
+
+                // Bolinha indicadora (limita a exibição visual a até 8 bolinhas para não poluir)
+                if (index < 8) {
+                    const dot = document.createElement('div');
+                    dot.className = `dot ${index === 0 ? 'active' : ''}`;
+                    dotsContainer.appendChild(dot);
+                }
+            });
+        }
+
+        // Alterna para o próximo depoimento
+        function nextTestimonial() {
+            const items = document.querySelectorAll('.testimonial-item');
+            const dots = document.querySelectorAll('.dot');
+
+            items[currentIndex].classList.remove('active');
+            if (dots[currentIndex % 8]) dots[currentIndex % 8].classList.remove('active');
+
+            currentIndex = (currentIndex + 1) % items.length;
+
+            items[currentIndex].classList.add('active');
+            if (dots[currentIndex % 8]) dots[currentIndex % 8].classList.add('active');
+        }
+
+        // Inicializa o carrossel e configura o intervalo de 4 segundos
+        initCarousel();
+        setInterval(nextTestimonial, 4000);
+    </script>
 </body>
 </html>
