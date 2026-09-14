@@ -58,7 +58,7 @@
         }
 
         /* ==========================================================================
-           2. BANNER DE URGÊNCIA (NOVO)
+           2. BANNER DE URGÊNCIA (TEXTO SEM NÚMERO)
            ========================================================================== */
         .urgency-banner {
             background: #fff1f2;
@@ -70,31 +70,13 @@
         }
 
         .urgency-text {
-            font-size: 12px;
+            font-size: 12.5px;
             font-weight: 700;
             color: var(--primary);
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 6px;
-            margin-bottom: 6px;
-        }
-
-        .progress-bar-container {
-            background: #ffe4e6;
-            height: 8px;
-            border-radius: 10px;
-            overflow: hidden;
-            width: 100%;
-        }
-
-        .progress-bar {
-            background: var(--primary-gradient);
-            height: 100%;
-            width: 94%;
-            border-radius: 10px;
-            transition: width 1s ease-in-out;
-            animation: pulseBar 1.5s infinite alternate;
         }
 
         /* ==========================================================================
@@ -435,11 +417,6 @@
             50% { transform: scale(1.03); }
             100% { transform: scale(1); }
         }
-
-        @keyframes pulseBar {
-            from { opacity: 0.8; }
-            to { opacity: 1; }
-        }
     </style>
 </head>
 <body>
@@ -447,13 +424,10 @@
     <!-- Container Principal da Aplicação -->
     <div class="container">
 
-        <!-- Banner de Urgência (Alerta de Vagas) -->
+        <!-- Banner de Urgência (Sem números) -->
         <div class="urgency-banner">
             <div class="urgency-text">
-                <span>⚠️ ATENÇÃO:</span> Restam apenas <span id="spots-count">7</span> vagas VIPs hoje!
-            </div>
-            <div class="progress-bar-container">
-                <div class="progress-bar" id="progress-bar"></div>
+                ⚠️ <strong>Atenção:</strong> Vagas VIPs limitadas! O acesso pode ser fechado a qualquer momento.
             </div>
         </div>
         
@@ -463,10 +437,10 @@
                 <img class="logo" alt="Logo Central de Ofertas" src="./logo.png">
             </div>
             <div>
-                <span class="badge">🔥 GRUPOS QUASE CHEIOS</span>
+                <span class="badge">🔥 ACESSO POR TEMPO LIMITADO</span>
             </div>
             <h1>Central de Ofertas</h1>
-            <p class="header-description">Entrada gratuita por tempo limitado. Garanta sua vaga em um dos grupos abaixo!</p>
+            <p class="header-description">Entrada gratuita liberada temporariamente. Selecione seu grupo preferido abaixo:</p>
         </div>
 
         <!-- Seção de Lojas Parceiras -->
@@ -497,7 +471,7 @@
             </div>
         </div>
 
-        <!-- Lista de Grupos de Ofertas (Com Urgência) -->
+        <!-- Lista de Grupos de Ofertas -->
         <div class="groups-list">
             
             <!-- Grupo 1 -->
@@ -506,7 +480,7 @@
                     <div class="group-icon">🔥</div>
                     <div class="group-text">
                         <div class="title">Grupo Geral de Ofertas</div>
-                        <div class="subtitle"><span class="spots-tag">⚡ Restam 4 vagas</span> • Todas as ofertas</div>
+                        <div class="subtitle"><span class="spots-tag">⚡ Poucas vagas</span> • Todas as ofertas</div>
                     </div>
                 </div>
                 <span class="action-btn">Garantir Vaga</span>
@@ -518,7 +492,7 @@
                     <div class="group-icon">👶</div>
                     <div class="group-text">
                         <div class="title">Ofertas Bebês & Infantil</div>
-                        <div class="subtitle"><span class="spots-tag">⚡ Restam 3 vagas</span> • Fraldas & Enxoval</div>
+                        <div class="subtitle"><span class="spots-tag">⚡ Poucas vagas</span> • Fraldas & Enxoval</div>
                     </div>
                 </div>
                 <span class="action-btn">Garantir Vaga</span>
@@ -533,7 +507,7 @@
                         <div class="subtitle">Lista de espera em breve</div>
                     </div>
                 </div>
-                <span class="action-btn">Lotado</span>
+                <span class="action-btn">Esgotado</span>
             </div>
 
         </div>
@@ -553,25 +527,14 @@
 
     </div>
 
-    <!-- Script do Carrossel e Contador Dinâmico de Vagas -->
+    <!-- Script do Carrossel de Depoimentos -->
     <script>
-        // Simulador de contagem regressiva de vagas
-        let spots = 7;
-        const spotsElement = document.getElementById('spots-count');
-        
-        setInterval(() => {
-            if (spots > 2) {
-                spots--;
-                spotsElement.textContent = spots;
-            }
-        }, 12000); // Reduz 1 vaga a cada 12 segundos para criar efeito de escassez em tempo real
-
         // Dados dos 30 Depoimentos
         const testimonialsData = [
             { text: "Consegui economizar muito em fraldas no grupo infantil. Super recomendo!", author: "Mariana S." },
             { text: "Os cupons da Amazon chegam voando, já aproveitei várias promoções relâmpago.", author: "Carlos R." },
             { text: "Peguei um PlayStation 5 com R$ 800 de desconto graças ao alerta do grupo!", author: "Lucas M." },
-            { text: "Grupo muito organizado e sem spam, só mandam promoção boa de verdade.", author: "Fernanda A." },
+            { text: "Grupo muito organized e sem spam, só mandam promoção boa de verdade.", author: "Fernanda A." },
             { text: "Comprei o enxoval completo do meu bebê pegando cupom de frete grátis na Shopee.", author: "Beatriz L." },
             { text: "Consegui um Air Fryer pela metade do preço no Mercado Livre. Sensacional!", author: "Rodrigo P." },
             { text: "Sempre pego os cupons secretos da Shopee antes de esgotar. Valeu demais!", author: "Camila T." },
