@@ -7,7 +7,7 @@
 
     <!-- Meta Tags para Compartilhamento em Redes Sociais / WhatsApp -->
     <meta property="og:title" content="Central de Ofertas - Melhores Promoções e Cupons">
-    <meta property="og:description" content="Entre nos nossos grupos VIPs e economize em lojas como Amazon, Shopee e Mercado Livre!">
+    <meta property="og:description" content="Entre nos nossos grupos VIPs do WhatsApp e economize em lojas como Amazon, Shopee e Mercado Livre!">
     <meta property="og:image" content="./logo.png">
     <link rel="icon" href="./logo.png">
 
@@ -23,7 +23,9 @@
         :root {
             --primary: #FF3B30;          /* Vermelho Promoção */
             --primary-gradient: linear-gradient(135deg, #FF3B30 0%, #FF2D55 100%);
-            --accent-orange: #FF9500;     /* Laranja Fogo/Alerta */
+            --whatsapp-green: #25D366;    /* Cor Oficial WhatsApp */
+            --whatsapp-gradient: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            --accent-orange: #FF9500;
             --bg-body: #f1f5f9;
             --bg-card: #ffffff;
             --text-title: #0f172a;
@@ -200,9 +202,9 @@
         }
 
         .group-card:hover {
-            border-color: var(--primary);
+            border-color: var(--whatsapp-green);
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(255, 59, 48, 0.12);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.15);
         }
 
         .group-info {
@@ -213,7 +215,7 @@
 
         .group-icon {
             font-size: 22px;
-            background: #fff0f0;
+            background: #f0fdf4;
             width: 46px;
             height: 46px;
             display: flex;
@@ -226,7 +228,7 @@
 
         .group-card:hover .group-icon {
             transform: scale(1.1) rotate(-4deg);
-            background: #ffe5e5;
+            background: #dcfce7;
         }
 
         .group-text .title {
@@ -240,7 +242,7 @@
             font-size: 11.5px;
             color: var(--text-body);
             line-height: 1.35;
-            margin-bottom: 3px;
+            margin-bottom: 4px;
         }
 
         .group-text .subtitle {
@@ -248,7 +250,7 @@
             color: var(--text-muted);
             display: flex;
             align-items: center;
-            gap: 4px;
+            gap: 6px;
         }
 
         .spots-tag {
@@ -256,22 +258,32 @@
             font-weight: 700;
         }
 
+        /* Estilos do Botão com WhatsApp */
         .action-btn {
-            background: var(--primary-gradient);
+            background: var(--whatsapp-gradient);
             color: white;
             font-size: 12px;
             font-weight: 700;
-            padding: 8px 14px;
-            border-radius: 8px;
-            box-shadow: 0 3px 8px rgba(255, 59, 48, 0.3);
+            padding: 9px 14px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(37, 211, 102, 0.3);
             transition: all 0.3s ease;
             white-space: nowrap;
             margin-left: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .action-btn svg {
+            width: 15px;
+            height: 15px;
+            fill: currentColor;
         }
 
         .group-card:hover .action-btn {
-            box-shadow: 0 5px 15px rgba(255, 59, 48, 0.5);
-            transform: scale(1.03);
+            box-shadow: 0 5px 16px rgba(37, 211, 102, 0.5);
+            transform: scale(1.04);
         }
 
         .group-card.disabled {
@@ -289,6 +301,14 @@
             background: #cbd5e1;
             color: #64748b;
             box-shadow: none;
+        }
+
+        /* Ícones inline do WhatsApp */
+        .wa-inline-icon {
+            width: 13px;
+            height: 13px;
+            fill: var(--whatsapp-green);
+            vertical-align: middle;
         }
 
         /* ==========================================================================
@@ -452,11 +472,17 @@
                     <div class="group-icon">🔥</div>
                     <div class="group-text">
                         <div class="title">Grupo Geral de Ofertas</div>
-                        <div class="description">Promoções relâmpago, cupons de desconto e achados diários de todas as grandes lojas.</div>
-                        <div class="subtitle"><span class="spots-tag">⚡ Poucas vagas restantes</span></div>
+                        <div class="description">Promoções relâmpago, cupons de desconto e achados diários das maiores lojas.</div>
+                        <div class="subtitle">
+                            <svg class="wa-inline-icon" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+                            Grupo no WhatsApp • <span class="spots-tag">⚡ Poucas vagas</span>
+                        </div>
                     </div>
                 </div>
-                <span class="action-btn">Garantir Vaga</span>
+                <span class="action-btn">
+                    <svg viewBox="0 0 24 24"><path d="M12.031 0c-6.627 0-12 5.373-12 12 0 2.159.572 4.187 1.569 5.94l-1.6 5.86 6.012-1.576c1.701.928 3.655 1.456 5.72 1.456 6.627 0 12-5.373 12-12 0-6.627-5.373-12-12-12zm6.16 16.592c-.255.715-1.254 1.306-1.742 1.378-.473.07-1.077.126-3.151-.716-2.653-1.078-4.36-3.774-4.492-3.951-.133-.177-1.077-1.432-1.077-2.73 0-1.298.68-1.938.922-2.203.242-.265.531-.331.708-.331.177 0 .354.002.509.009.165.008.387-.063.605.46.221.531.752 1.834.818 1.967.066.133.111.288.022.465-.088.177-.133.288-.265.442-.133.155-.28.347-.4.465-.133.133-.271.277-.116.543.155.265.688 1.136 1.476 1.838 1.013.903 1.868 1.183 2.133 1.316.265.133.42.111.575-.066.155-.177.664-.774.841-1.039.177-.265.354-.221.597-.133.242.088 1.547.73 1.812.862.265.133.442.199.509.31.066.111.066.641-.189 1.356z"/></svg>
+                    Entrar
+                </span>
             </a>
 
             <!-- Grupo 2 -->
@@ -465,11 +491,17 @@
                     <div class="group-icon">👶</div>
                     <div class="group-text">
                         <div class="title">Ofertas Bebês & Infantil</div>
-                        <div class="description">Descontos exclusivos em fraldas, enxoval, brinquedos, roupinhas e itens essenciais.</div>
-                        <div class="subtitle"><span class="spots-tag">⚡ Poucas vagas restantes</span></div>
+                        <div class="description">Descontos exclusivos em fraldas, enxoval, brinquedos e roupinhas.</div>
+                        <div class="subtitle">
+                            <svg class="wa-inline-icon" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+                            Grupo no WhatsApp • <span class="spots-tag">⚡ Poucas vagas</span>
+                        </div>
                     </div>
                 </div>
-                <span class="action-btn">Garantir Vaga</span>
+                <span class="action-btn">
+                    <svg viewBox="0 0 24 24"><path d="M12.031 0c-6.627 0-12 5.373-12 12 0 2.159.572 4.187 1.569 5.94l-1.6 5.86 6.012-1.576c1.701.928 3.655 1.456 5.72 1.456 6.627 0 12-5.373 12-12 0-6.627-5.373-12-12-12zm6.16 16.592c-.255.715-1.254 1.306-1.742 1.378-.473.07-1.077.126-3.151-.716-2.653-1.078-4.36-3.774-4.492-3.951-.133-.177-1.077-1.432-1.077-2.73 0-1.298.68-1.938.922-2.203.242-.265.531-.331.708-.331.177 0 .354.002.509.009.165.008.387-.063.605.46.221.531.752 1.834.818 1.967.066.133.111.288.022.465-.088.177-.133.288-.265.442-.133.155-.28.347-.4.465-.133.133-.271.277-.116.543.155.265.688 1.136 1.476 1.838 1.013.903 1.868 1.183 2.133 1.316.265.133.42.111.575-.066.155-.177.664-.774.841-1.039.177-.265.354-.221.597-.133.242.088 1.547.73 1.812.862.265.133.442.199.509.31.066.111.066.641-.189 1.356z"/></svg>
+                    Entrar
+                </span>
             </a>
 
             <!-- Grupo 3 (Em Breve) -->
@@ -478,7 +510,7 @@
                     <div class="group-icon">💻</div>
                     <div class="group-text">
                         <div class="title">Tecnologia & Gadgets</div>
-                        <div class="description">Ofertas focadas em smartphones, notebooks, periféricos e eletrônicos.</div>
+                        <div class="description">Ofertas focadas em smartphones, notebooks e eletrônicos.</div>
                         <div class="subtitle">Em breve • Lista de espera</div>
                     </div>
                 </div>
@@ -496,7 +528,7 @@
 
         <!-- Rodapé -->
         <div class="footer">
-            <p>🔒 Grupos 100% seguros, silenciosos e verificados.</p>
+            <p>🔒 Grupos 100% seguros, silenciosos e verificados no WhatsApp.</p>
             <p>© Central VIP de Ofertas. Todos os direitos reservados.</p>
         </div>
 
@@ -504,7 +536,6 @@
 
     <!-- Script do Carrossel de Depoimentos -->
     <script>
-        // Dados dos 30 Depoimentos
         const testimonialsData = [
             { text: "Consegui economizar muito em fraldas no grupo infantil. Super recomendo!", author: "Mariana S." },
             { text: "Os cupons da Amazon chegam voando, já aproveitei várias promoções relâmpago.", author: "Carlos R." },
