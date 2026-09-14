@@ -58,29 +58,7 @@
         }
 
         /* ==========================================================================
-           2. BANNER DE URGÊNCIA (TEXTO SEM NÚMERO)
-           ========================================================================== */
-        .urgency-banner {
-            background: #fff1f2;
-            border: 1px solid #fecdd3;
-            border-radius: 14px;
-            padding: 10px 14px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .urgency-text {
-            font-size: 12.5px;
-            font-weight: 700;
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-        }
-
-        /* ==========================================================================
-           3. CABEÇALHO (LOGO E BADGES)
+           2. CABEÇALHO (LOGO E BADGES)
            ========================================================================== */
         .header {
             text-align: center;
@@ -118,27 +96,20 @@
             font-size: 12px;
             font-weight: 700;
             color: var(--primary);
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             animation: pulseBadge 2s infinite ease-in-out;
         }
 
         h1 {
             font-size: 24px;
             font-weight: 800;
-            margin: 0 0 8px 0;
+            margin: 0;
             color: var(--text-title);
             letter-spacing: -0.5px;
         }
 
-        .header-description {
-            font-size: 14px;
-            color: var(--text-body);
-            margin: 0;
-            line-height: 1.5;
-        }
-
         /* ==========================================================================
-           4. LOJAS PARCEIRAS (LOGOS AMPLIADOS)
+           3. LOJAS PARCEIRAS
            ========================================================================== */
         .stores-section {
             margin-bottom: 24px;
@@ -205,7 +176,7 @@
         }
 
         /* ==========================================================================
-           5. LISTA DE GRUPOS / LINKS DE AÇÃO
+           4. LISTA DE GRUPOS / LINKS DE AÇÃO
            ========================================================================== */
         .groups-list {
             display: flex;
@@ -312,7 +283,7 @@
         }
 
         /* ==========================================================================
-           6. CARROSSEL DE DEPOIMENTOS
+           5. CARROSSEL DE DEPOIMENTOS
            ========================================================================== */
         .testimonials {
             background: #f8fafc;
@@ -393,7 +364,7 @@
         }
 
         /* ==========================================================================
-           7. RODAPÉ E ANIMAÇÕES
+           6. RODAPÉ E ANIMAÇÕES
            ========================================================================== */
         .footer {
             text-align: center;
@@ -423,24 +394,16 @@
 
     <!-- Container Principal da Aplicação -->
     <div class="container">
-
-        <!-- Banner de Urgência (Sem números) -->
-        <div class="urgency-banner">
-            <div class="urgency-text">
-                ⚠️ <strong>Atenção:</strong> Vagas VIPs limitadas!
-            </div>
-        </div>
         
-        <!-- Cabeçalho -->
+        <!-- Cabeçalho Limpo -->
         <div class="header">
             <div class="logo-wrapper">
                 <img class="logo" alt="Logo Central de Ofertas" src="./logo.png">
             </div>
             <div>
-                <span class="badge">🔥 ACESSO POR TEMPO LIMITADO</span>
+                <span class="badge">🔥 VAGAS LIMITADAS</span>
             </div>
             <h1>Central de Ofertas</h1>
-            <p class="header-description">Entrada gratuita liberada temporariamente. Selecione seu grupo preferido abaixo:</p>
         </div>
 
         <!-- Seção de Lojas Parceiras -->
@@ -534,7 +497,7 @@
             { text: "Consegui economizar muito em fraldas no grupo infantil. Super recomendo!", author: "Mariana S." },
             { text: "Os cupons da Amazon chegam voando, já aproveitei várias promoções relâmpago.", author: "Carlos R." },
             { text: "Peguei um PlayStation 5 com R$ 800 de desconto graças ao alerta do grupo!", author: "Lucas M." },
-            { text: "Grupo muito organized e sem spam, só mandam promoção boa de verdade.", author: "Fernanda A." },
+            { text: "Grupo muito organizado e sem spam, só mandam promoção boa de verdade.", author: "Fernanda A." },
             { text: "Comprei o enxoval completo do meu bebê pegando cupom de frete grátis na Shopee.", author: "Beatriz L." },
             { text: "Consegui um Air Fryer pela metade do preço no Mercado Livre. Sensacional!", author: "Rodrigo P." },
             { text: "Sempre pego os cupons secretos da Shopee antes de esgotar. Valeu demais!", author: "Camila T." },
