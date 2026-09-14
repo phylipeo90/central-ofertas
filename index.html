@@ -3,123 +3,285 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Meta tag recomendada para identificação da Awin -->
-    <meta name="awin-site-verification" content="Awin Publisher Portal">
-    <title>Central de Ofertas VIP | Lucas Ofertas</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Central de Ofertas - Melhores Promoções e Cupons</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Estilos básicos para manter a identidade limpa e moderna */
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+        .container {
+            width: 100%;
+            max-width: 480px;
+            background: #ffffff;
+            padding: 24px;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            box-sizing: border-box;
         }
-        .btn-hover-effect {
-            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        .header {
+            text-align: center;
+            margin-bottom: 24px;
         }
-        .btn-hover-effect:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        .header img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 12px;
         }
-        .btn-hover-effect:active {
-            transform: translateY(0);
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            background: #f1f5f9;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            color: #64748b;
+            margin-bottom: 12px;
+        }
+        h1 {
+            font-size: 22px;
+            font-weight: 700;
+            margin: 0 0 8px 0;
+            color: #0f172a;
+        }
+        p {
+            font-size: 14px;
+            color: #64748b;
+            margin: 0 0 16px 0;
+            line-height: 1.5;
+        }
+        
+        /* Novidade: Lojas Parceiras */
+        .stores-section {
+            margin-bottom: 24px;
+            text-align: center;
+        }
+        .stores-title {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #94a3b8;
+            margin-bottom: 10px;
+        }
+        .stores-grid {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .store-tag {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 500;
+            color: #475569;
+        }
+
+        /* Grupos / Links */
+        .groups-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        .group-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            padding: 14px;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .group-card:hover {
+            border-color: #2563eb;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.08);
+        }
+        .group-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .group-icon {
+            font-size: 24px;
+            background: #f1f5f9;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+        }
+        .group-text div:first-child {
+            font-weight: 600;
+            font-size: 14px;
+            color: #1e293b;
+        }
+        .group-text div:last-child {
+            font-size: 12px;
+            color: #64748b;
+        }
+        .action-btn {
+            background: #2563eb;
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 6px;
+        }
+        .group-card.disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        .group-card.disabled .action-btn {
+            background: #cbd5e1;
+            color: #64748b;
+        }
+
+        /* Novidade: Depoimentos */
+        .testimonials {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 20px;
+        }
+        .testimonials-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+        .testimonial-item {
+            font-size: 13px;
+            color: #475569;
+            font-style: italic;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+        .testimonial-item:last-child {
+            margin-bottom: 0;
+        }
+        .testimonial-author {
+            font-weight: 600;
+            font-style: normal;
+            color: #1e293b;
+        }
+
+        /* Rodapé */
+        .footer {
+            text-align: center;
+            font-size: 11px;
+            color: #94a3b8;
+            border-top: 1px solid #f1f5f9;
+            padding-top: 16px;
+        }
+        .footer p {
+            margin-bottom: 6px;
         }
     </style>
 </head>
-<body class="bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 min-h-screen flex flex-col items-center justify-center p-4 sm:p-6 text-slate-800">
+<body>
 
-    <!-- Container Principal -->
-    <div class="max-w-md w-full glass-card rounded-3xl shadow-2xl p-6 sm:p-8 border border-white/20 relative overflow-hidden">
+    <div class="container">
         
-        <!-- Elementos Decorativos de Fundo -->
-        <div class="absolute -top-12 -right-12 w-32 h-32 bg-amber-400/20 rounded-full blur-2xl pointer-events-none"></div>
-        <div class="absolute -bottom-12 -left-12 w-32 h-32 bg-indigo-500/20 rounded-full blur-2xl pointer-events-none"></div>
-
-        <!-- Header / Logo -->
-        <div class="text-center relative z-10">
-            <!-- Logo Hospedada no Repositório -->
-            <div class="w-24 h-24 rounded-2xl mx-auto mb-4 overflow-hidden shadow-lg border-2 border-white/50 transform rotate-2 hover:rotate-0 transition-transform duration-300 bg-white">
-                <img src="./logo.png" alt="Logo Central de Ofertas" class="w-full h-full object-cover">
+        <!-- Cabeçalho -->
+        <div class="header">
+            <img alt="Logo Central de Ofertas" src="./logo.png">
+            <div>
+                <span class="badge">🔥 Atualizado Diariamente</span>
             </div>
+            <h1>Central de Ofertas</h1>
+            <p>Selecione abaixo o grupo da sua preferência para receber as melhores promoções, cupons e achados exclusivos!</p>
+        </div>
 
-            <div class="inline-flex items-center gap-1.5 bg-amber-100 text-amber-900 font-bold text-xs px-3 py-1 rounded-full mb-3 uppercase tracking-wider">
-                <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
-                Atualizado Diariamente
+        <!-- Onde economizar (Lojas Parceiras) -->
+        <div class="stores-section">
+            <div class="stores-title">Principais Lojas Monitoradas</div>
+            <div class="stores-grid">
+                <span class="store-tag">Amazon</span>
+                <span class="store-tag">Shopee</span>
+                <span class="store-tag">Mercado Livre</span>
+                <span class="store-tag">Magalu</span>
             </div>
-
-            <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Central de Ofertas</h1>
-            <p class="text-slate-600 text-sm mt-2 font-medium">
-                Selecione abaixo o grupo da sua preferência para receber as melhores promoções, cupons e achados exclusivos!
-            </p>
         </div>
 
         <!-- Lista de Grupos -->
-        <div class="mt-8 space-y-4 relative z-10">
+        <div class="groups-list">
             
-            <!-- Grupo 1: Geral -->
-            <a href="https://chat.whatsapp.com/BqZ9KWZeq8A1g7cJF5yu5o?s=cl&p=a&ilr=0" target="_blank" rel="noopener noreferrer" 
-               class="btn-hover-effect flex items-center justify-between bg-gradient-to-r from-emerald-500 to-teal-600 text-white p-4 rounded-2xl font-semibold shadow-md border border-emerald-400/30 group">
-                <div class="flex items-center gap-3.5">
-                    <div class="w-11 h-11 bg-white/20 rounded-xl flex items-center justify-center text-2xl shrink-0 group-hover:scale-110 transition-transform">
-                        🔥
-                    </div>
-                    <div>
-                        <div class="font-bold text-base leading-tight">Grupo Geral de Ofertas</div>
-                        <div class="text-xs text-emerald-100 font-normal mt-0.5">Todas as categorias & promoções do dia</div>
+            <!-- Grupo 1 -->
+            <a href="https://chat.whatsapp.com/BqZ9KWZeq8A1g7cJF5yu5o?s=cl&p=a&ilr=0" class="group-card" rel="noopener noreferrer" target="_blank">
+                <div class="group-info">
+                    <div class="group-icon">🔥</div>
+                    <div class="group-text">
+                        <div>Grupo Geral de Ofertas</div>
+                        <div>Todas as categorias & promoções</div>
                     </div>
                 </div>
-                <span class="text-xs bg-white text-emerald-700 font-bold px-3 py-1.5 rounded-xl shadow-sm group-hover:bg-emerald-50 transition-colors shrink-0">
-                    Entrar
-                </span>
+                <span class="action-btn">Entrar</span>
             </a>
 
-            <!-- Grupo 2: Bebês & Infantil -->
-            <a href="https://chat.whatsapp.com/IPko04fc9U8KZ8B0kgKEfa?s=cl&p=a&ilr=0" target="_blank" rel="noopener noreferrer" 
-               class="btn-hover-effect flex items-center justify-between bg-gradient-to-r from-pink-500 to-rose-500 text-white p-4 rounded-2xl font-semibold shadow-md border border-pink-400/30 group">
-                <div class="flex items-center gap-3.5">
-                    <div class="w-11 h-11 bg-white/20 rounded-xl flex items-center justify-center text-2xl shrink-0 group-hover:scale-110 transition-transform">
-                        👶
-                    </div>
-                    <div>
-                        <div class="font-bold text-base leading-tight">Ofertas Bebês & Infantil</div>
-                        <div class="text-xs text-pink-100 font-normal mt-0.5">Fraldas, brinquedos, enxoval & moda</div>
+            <!-- Grupo 2 -->
+            <a href="https://chat.whatsapp.com/IPko04fc9U8KZ8B0kgKEfa?s=cl&p=a&ilr=0" class="group-card" rel="noopener noreferrer" target="_blank">
+                <div class="group-info">
+                    <div class="group-icon">👶</div>
+                    <div class="group-text">
+                        <div>Ofertas Bebês & Infantil</div>
+                        <div>Fraldas, brinquedos & enxoval</div>
                     </div>
                 </div>
-                <span class="text-xs bg-white text-pink-600 font-bold px-3 py-1.5 rounded-xl shadow-sm group-hover:bg-pink-50 transition-colors shrink-0">
-                    Entrar
-                </span>
+                <span class="action-btn">Entrar</span>
             </a>
 
-            <!-- Grupo 3: Tecnologia & Eletrônicos (DESABILITADO TEMPORARIAMENTE) -->
-            <div class="flex items-center justify-between bg-slate-100 border border-slate-200 text-slate-400 p-4 rounded-2xl font-semibold opacity-75 cursor-not-allowed select-none">
-                <div class="flex items-center gap-3.5">
-                    <div class="w-11 h-11 bg-slate-200 rounded-xl flex items-center justify-center text-2xl shrink-0 grayscale">
-                        💻
-                    </div>
-                    <div>
-                        <div class="font-bold text-base leading-tight text-slate-500">Tecnologia & Gadgets</div>
-                        <div class="text-xs text-slate-400 font-normal mt-0.5">Smartphones, notebooks & periféricos</div>
+            <!-- Grupo 3 (Em breve) -->
+            <div class="group-card disabled">
+                <div class="group-info">
+                    <div class="group-icon">💻</div>
+                    <div class="group-text">
+                        <div>Tecnologia & Gadgets</div>
+                        <div>Smartphones & notebooks</div>
                     </div>
                 </div>
-                <span class="text-xs bg-slate-200 text-slate-500 font-bold px-3 py-1.5 rounded-xl shrink-0">
-                    Em Breve
-                </span>
+                <span class="action-btn">Em Breve</span>
             </div>
 
         </div>
 
-        <!-- Aviso / Rodapé -->
-        <div class="mt-8 pt-6 border-t border-slate-200/80 text-center relative z-10">
-            <p class="text-xs text-slate-500 font-medium">
-                🔒 Grupos 100% seguros e verificados.
-            </p>
-            <p class="text-[11px] text-slate-400 mt-1">
-                © Central VIP de Ofertas. Parceiro verificado Awin. Todos os direitos reservados.
-            </p>
+        <!-- Depoimentos / Prova Social -->
+        <div class="testimonials">
+            <div class="testimonials-title">💬 O que dizem os membros</div>
+            <div class="testimonial-item">
+                "Consegui economizar muito em fraldas no grupo infantil. Super recomendo!" <br>
+                <span class="testimonial-author">— Mariana S.</span>
+            </div>
+            <div class="testimonial-item" style="margin-top: 12px;">
+                "Os cupons da Amazon chegam voando, já aproveitei várias promoções relâmpago." <br>
+                <span class="testimonial-author">— Carlos R.</span>
+            </div>
+        </div>
+
+        <!-- Rodapé -->
+        <div class="footer">
+            <p>🔒 Grupos 100% seguros, silenciosos e verificados.</p>
+            <p>© Central VIP de Ofertas. Parceiro verificado Awin. Todos os direitos reservados.</p>
         </div>
 
     </div>
