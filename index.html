@@ -11,11 +11,10 @@
     <meta property="og:image" content="./logo.png">
     <link rel="icon" href="./logo.png">
 
-    <!-- Fontes e Ícones (Font Awesome 6 CDN) -->
+    <!-- Fontes -->
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
         /* ==========================================================================
@@ -173,6 +172,12 @@
             flex-shrink: 0;
         }
 
+        .group-icon svg {
+            width: 22px;
+            height: 22px;
+            fill: currentColor;
+        }
+
         .group-card:hover .group-icon {
             transform: scale(1.1) rotate(-4deg);
             background: rgba(37, 211, 102, 0.2);
@@ -215,6 +220,12 @@
             gap: 6px;
         }
 
+        .action-btn svg {
+            width: 15px;
+            height: 15px;
+            fill: currentColor;
+        }
+
         .group-card:hover .action-btn {
             box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
             transform: scale(1.04);
@@ -239,13 +250,8 @@
             box-shadow: none;
         }
 
-        .wa-inline-icon {
-            color: var(--whatsapp-green);
-            font-size: 12px;
-        }
-
         /* ==========================================================================
-           4. LOJAS PARCEIRAS & INDICADOR ONLINE (AGORA EMBAIXO)
+           4. LOJAS PARCEIRAS & INDICADOR ONLINE (EMBAIXO)
            ========================================================================== */
         .stores-section {
             margin-bottom: 24px;
@@ -471,7 +477,7 @@
 </head>
 <body>
 
-    <!-- Container Principal da Aplicação -->
+    <!-- Container Principal -->
     <div class="container">
         
         <!-- Cabeçalho -->
@@ -480,34 +486,31 @@
                 <img class="logo" alt="Logo Central de Ofertas" src="./logo.png">
             </div>
             <div>
-                <span class="badge"><i class="fa-solid fa-fire"></i> VAGAS LIMITADAS</span>
+                <span class="badge">🔥 VAGAS LIMITADAS</span>
             </div>
             <h1>Central de Ofertas</h1>
-            <!-- Descrição Geral Adicionada Abaixo do Título -->
+            <!-- Descrição Geral -->
             <p class="main-description">
                 Entre nos nossos grupos VIPs do WhatsApp para receber promoções relâmpago, cupons exclusivos e os melhores achados em tempo real!
             </p>
         </div>
 
-        <!-- Lista de Grupos de Ofertas (Sem descrição nos botões) -->
+        <!-- Lista de Grupos (Sem descrição nos botões + Ícones SVG originais) -->
         <div class="groups-list">
             
             <!-- Grupo 1 -->
             <a href="https://chat.whatsapp.com/BqZ9KWZeq8A1g7cJF5yu5o?s=cl&p=a&ilr=0" class="group-card" target="_blank" rel="noopener noreferrer">
                 <div class="group-info">
                     <div class="group-icon">
-                        <i class="fa-solid fa-bolt"></i>
+                        <svg viewBox="0 0 24 24"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>
                     </div>
                     <div class="group-text">
                         <div class="title">Grupo Geral de Ofertas</div>
-                        <div class="subtitle">
-                            <i class="fa-brands fa-whatsapp wa-inline-icon"></i>
-                            Grupo no WhatsApp • <span class="spots-tag">⚡ Poucas vagas</span>
-                        </div>
+                        <div class="subtitle">Grupo no WhatsApp • <span class="spots-tag">⚡ Poucas vagas</span></div>
                     </div>
                 </div>
                 <span class="action-btn">
-                    <i class="fa-brands fa-whatsapp"></i>
+                    <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
                     Entrar
                 </span>
             </a>
@@ -516,18 +519,15 @@
             <a href="https://chat.whatsapp.com/IPko04fc9U8KZ8B0kgKEfa?s=cl&p=a&ilr=0" class="group-card" target="_blank" rel="noopener noreferrer">
                 <div class="group-info">
                     <div class="group-icon">
-                        <i class="fa-solid fa-baby"></i>
+                        <svg viewBox="0 0 24 24"><path d="M12 2a4 4 0 0 1 4 4c0 1.95-1.4 3.58-3.25 3.93l1.91 3.82 2.84.41c1.1.16 1.54 1.52.74 2.32l-2.06 2.01.49 2.83c.19 1.1-.96 1.93-1.94 1.41L12 21.35l-2.54 1.34c-.98.52-2.13-.31-1.94-1.41l.49-2.83-2.06-2.01c-.8-.8-.36-2.16.74-2.32l2.84-.41 1.91-3.82A4.002 4.002 0 0 1 12 2z"/></svg>
                     </div>
                     <div class="group-text">
                         <div class="title">Ofertas Bebês & Infantil</div>
-                        <div class="subtitle">
-                            <i class="fa-brands fa-whatsapp wa-inline-icon"></i>
-                            Grupo no WhatsApp • <span class="spots-tag">⚡ Poucas vagas</span>
-                        </div>
+                        <div class="subtitle">Grupo no WhatsApp • <span class="spots-tag">⚡ Poucas vagas</span></div>
                     </div>
                 </div>
                 <span class="action-btn">
-                    <i class="fa-brands fa-whatsapp"></i>
+                    <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
                     Entrar
                 </span>
             </a>
@@ -536,7 +536,7 @@
             <div class="group-card disabled">
                 <div class="group-info">
                     <div class="group-icon">
-                        <i class="fa-solid fa-laptop"></i>
+                        <svg viewBox="0 0 24 24"><path d="M20 18c1.1 0 1.99-.9 1.99-2L22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"/></svg>
                     </div>
                     <div class="group-text">
                         <div class="title">Tecnologia & Gadgets</div>
@@ -548,7 +548,7 @@
 
         </div>
 
-        <!-- Seção de Lojas Parceiras (Reposicionada para baixo) -->
+        <!-- Seção de Lojas Parceiras (Posicionada abaixo dos grupos) -->
         <div class="stores-section">
             <div class="stores-title">
                 Lojas Monitoradas 
@@ -583,16 +583,14 @@
 
         <!-- Carrossel de Depoimentos -->
         <div class="testimonials">
-            <div class="testimonials-title">
-                <i class="fa-solid fa-comments"></i> O que dizem os membros
-            </div>
+            <div class="testimonials-title">💬 O que dizem os membros</div>
             <div class="testimonial-container" id="testimonial-container"></div>
             <div class="carousel-dots" id="carousel-dots"></div>
         </div>
 
         <!-- Rodapé -->
         <div class="footer">
-            <p><i class="fa-solid fa-shield-halved"></i> Grupos 100% seguros, silenciosos e verificados no WhatsApp.</p>
+            <p>🔒 Grupos 100% seguros, silenciosos e verificados no WhatsApp.</p>
             <p>© Central VIP de Ofertas. Todos os direitos reservados.</p>
         </div>
 
