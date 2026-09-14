@@ -124,55 +124,63 @@
             text-align: center;
             background: #fff8f8;
             border: 1px solid rgba(255, 59, 48, 0.12);
-            padding: 16px;
-            border-radius: 16px;
+            padding: 18px 12px;
+            border-radius: 18px;
         }
-
+        
         .stores-title {
             font-size: 11px;
-            font-weight: 700;
+            font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 0.8px;
+            letter-spacing: 1px;
             color: var(--primary);
-            margin-bottom: 12px;
+            margin-bottom: 14px;
         }
-
+        
         .stores-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 8px;
+            gap: 10px;
             align-items: center;
         }
-
+        
         .store-item {
             background: #ffffff;
             border: 1px solid var(--border-color);
-            padding: 8px 4px;
-            border-radius: 10px;
+            padding: 12px 6px; /* Aumentado o espaço interno do card */
+            border-radius: 12px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 4px;
+            gap: 6px;
             transition: all 0.25s ease;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            min-height: 70px; /* Garante altura uniforme */
         }
-
+        
         .store-item:hover {
             transform: translateY(-3px);
             border-color: var(--primary);
-            box-shadow: 0 4px 12px rgba(255, 59, 48, 0.15);
+            box-shadow: 0 6px 16px rgba(255, 59, 48, 0.18);
         }
-
+        
+        /* Logos ampliados */
         .store-logo {
-            width: 28px;
-            height: 28px;
-            object-fit: contain;
+            width: 44px;             /* Aumentado de 28px para 44px */
+            height: 44px;            /* Aumentado de 28px para 44px */
+            object-fit: contain;     /* Preserva as proporções do logo sem distorcer */
+            mix-blend-mode: multiply; /* Remove fundos brancos do PNG caso existam */
+            transition: transform 0.25s ease;
         }
-
+        
+        .store-item:hover .store-logo {
+            transform: scale(1.1);   /* Leve zoom no logo ao passar o mouse */
+        }
+        
         .store-name {
             font-size: 11px;
-            font-weight: 600;
+            font-weight: 700;
             color: var(--text-title);
         }
 
